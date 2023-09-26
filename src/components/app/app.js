@@ -63,7 +63,7 @@ class App extends Component {
         //     }
         // })
                 //Два варианта решение задачи
-                
+
         this.setState(({data}) => ({
             data: data.map(item => {
                 if (item.id === id) {
@@ -80,9 +80,15 @@ class App extends Component {
     }
 
     render() {
+
+        const employees = this.state.data.length;
+        const increased = this.state.data.filter(item => item.increase).length;
+
         return (
             <div className="app">
-                <AppInfo/>
+                <AppInfo 
+                employees={employees}
+                increased={increased}/>
     
                 <div className="search-panel">
                     <SearchPanel/>
